@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn tập từ vựng tiếng Anh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #4e54c8;
+            --secondary-color: #8f94fb;
+            --accent-color: #ff6b6b;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 90%;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        #reviewSection {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        #reviewSection:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        #reviewWord {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        
+        input[type="text"]:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
+        
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 5px;
+        }
+        
+        button:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        #result {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .background-animation li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+        }
+        
+        .background-animation li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+        
+        .background-animation li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+        
+        .background-animation li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+        
+        .background-animation li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+        
+        .background-animation li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul class="background-animation">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <div class="container">
+        <h1>Ôn tập từ vựng tiếng Anh</h1>
+        
+        <div id="reviewSection">
+            <span id="reviewWord"></span>
+            <input type="text" id="answer" placeholder="Nhập câu trả lời">
+            <button onclick="checkAnswer()"><i class="fas fa-check"></i> Kiểm tra</button>
+            <button onclick="nextWord()"><i class="fas fa-forward"></i> Từ tiếp theo</button>
+            <div id="result"></div>
+        </div>
+        
+        <button onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Quay lại trang chủ</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+        // Cấu hình Firebase
+        const firebaseConfig = {
+          
+            apiKey: "AIzaSyCopRb4AelNDsVQMwksPggb-AL1Sqw5q3E",
+            authDomain: "tailieufree-70769.firebaseapp.com",
+            databaseURL: "https://tailieufree-70769-default-rtdb.firebaseio.com",
+            projectId: "tailieufree-70769",
+            storageBucket: "tailieufree-70769.appspot.com",
+            messagingSenderId: "265385854576",
+            appId: "1:265385854576:web:ef5a39eee7ea21cc8956b5",
+            measurementId: "G-CHBBC8N2F2"
+        };
+      
+
+        // Khởi tạo Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        let vocabulary = [];
+        let currentWord = {};
+        let isEnglishQuestion = true;
+
+        // Tải từ vựng từ Firebase
+        function loadVocabulary() {
+            database.ref('vocabulary').once('value', (snapshot) => {
+                vocabulary = [];
+                snapshot.forEach((childSnapshot) => {
+                    vocabulary.push(childSnapshot.val());
+                });
+                nextWord();
+            });
+        }
+
+        // Chọn từ ngẫu nhiên và hiển thị
+        function nextWord() {
+            if (vocabulary.length > 0) {
+                currentWord = vocabulary[Math.floor(Math.random() * vocabulary.length)];
+                isEnglishQuestion = Math.random() < 0.5;
+                document.getElementById('reviewWord').textContent = isEnglishQuestion ? currentWord.english : currentWord.vietnamese;
+                document.getElementById('answer').value = '';
+                document.getElementById('result').textContent = '';
+                document.getElementById('result').className = '';
+            }
+        }
+
+        // Kiểm tra câu trả lời
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+            const correctAnswer = isEnglishQuestion ? currentWord.vietnamese.toLowerCase() : currentWord.english.toLowerCase();
+            const resultElement = document.getElementById('result');
+
+            if (userAnswer === correctAnswer) {
+                resultElement.textContent = 'Chính xác!';
+                resultElement.className = 'correct';
+            } else {
+                resultElement.textContent = `Không chính xác. Đáp án đúng là: ${correctAnswer}`;
+                resultElement.className = 'incorrect';
+            }
+        }
+
+        // Tải từ vựng khi trang được tải
+        window.onload = loadVocabulary;
+    </script>
+</body>
+</html>
